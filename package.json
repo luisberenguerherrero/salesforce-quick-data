@@ -1,0 +1,52 @@
+{
+    "name": "salesforce-quick-data",
+    "description": "LWC app for retrieve Salesforce org data commonly used by developers",
+    "version": "0.0.0",
+    "author": "Luis Berenguer",
+    "bugs": "https://github.com/Luis Berenguer/salesforce-quick-data/issues",
+    "dependencies": {
+        "lwc-services": "^1.2.2"
+    },
+    "devDependencies": {
+        "husky": "^2.3.0",
+        "lint-staged": "^8.2.1"
+    },
+    "engines": {
+        "node": ">=10.0.0"
+    },
+    "homepage": "https://github.com/Luis Berenguer/salesforce-quick-data",
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "keywords": [
+        "lwc"
+    ],
+    "license": "MIT",
+    "lint-staged": {
+        "**/*.{css,html,js,json,md,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/modules/**/*.js": [
+            "eslint"
+        ],
+        "*": [
+            "git add"
+        ]
+    },
+    "repository": "Luis Berenguer/salesforce-quick-data",
+    "scripts": {
+        "build": "lwc-services build -m production",
+        "build:development": "lwc-services build",
+        "lint": "eslint ./src/**/*.js",
+        "prettier": "prettier --write '**/*.{css,html,js,json,md,yaml,yml}'",
+        "prettier:verify": "prettier --list-different '**/*.{css,html,js,json,md,yaml,yml}'",
+        "serve": "lwc-services serve",
+        "test:unit": "lwc-services test",
+        "test:unit:coverage": "lwc-services test --coverage",
+        "test:unit:debug": "lwc-services test --debug",
+        "test:unit:watch": "lwc-services test --watch",
+        "watch": "lwc-services watch"
+    }
+}
