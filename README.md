@@ -1,11 +1,7 @@
 # salesforce-quick-data
 
-Here will be some information about the app.
+The goal of this app is offer the Salesforce Developers a handy tool to retrieve and deploy metadata into their orgs quickly and easily. The aim is not to replace any of the existing CLI functionality, just give a direct and easy tool for specific purposes.
 
-## How to start?
+## Status
 
-Start simple by running `yarn watch` (or `npm run watch`, if you set up the project with `npm`). This will start the project with a local development server.
-
-The source files are located in the [`src`](./src) folder. All web components are within the [`src/modules`](./src/modules) folder. The folder hierarchy also represents the naming structure of the web components.
-
-Find more information on the main repo on [GitHub](https://github.com/muenzpraeger/lwc-create-app).
+This app is a work in progress. Feel free to contact me with any idea or proposal on luisberenguerherrero@gmail.com

@@ -37,7 +37,7 @@ export default class App extends LightningElement {
 
     getQueryParameters() {
         var params = {};
-        var search = location.hash.substring(1);
+        var search = window.location.hash.substring(1);
 
         if (search) {
             params = JSON.parse(
@@ -53,7 +53,7 @@ export default class App extends LightningElement {
 
     get emptyParameters() {
         for (let key in this.queryParameters) {
-            if (this.queryParameters.hasOwnProperty(key)) return false;
+            if (this.queryParameters[key]) return false;
         }
         return true;
     }
