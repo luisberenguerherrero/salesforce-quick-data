@@ -10,17 +10,32 @@
         <img src="./resources/lwc.png" />
     </div>
 
+    <div class="center">
+        <div class="container">
+            <p class="info">
+                Token: {token}
+            </p>
+            <p class="info">
+                Empty: {emptyParameters}
+            </p>
+        </div>
+    </div>
     <!-- Page code -->
     <div class="center">
         <div class="container">
-            <!-- prettier-ignore -->
             <p class="info">
                 Edit <strong class="code">src/modules/my/app/app.html</strong>
                 <br />and save for live reload.
             </p>
         </div>
-        <div>
+        <!-- <div>
             <a href="https://lwc.dev" class="link" target="_blank">Learn LWC</a>
+        </div> -->
+        <div if:false={logged}>
+            <a href={urlLogin} class="link" target="_blank">Login Salesforce</a>
+        </div>
+        <div if:true={logged}>
+            <a href="#" onclick={handleCallout} class="link">Get INFO</a>
         </div>
     </div>
 </template>
