@@ -41,15 +41,4 @@ describe('my-app', () => {
         expect(linkEl.href).toMatch(/^https:/);
     });
 
-    it('contains one active custom element my-greeting', () => {
-        const element = createElement('my-app', {
-            is: MyApp
-        });
-        document.body.appendChild(element);
-
-        // Get array of my-greeting custom elements
-        const greetingEls = element.shadowRoot.querySelectorAll('my-greeting');
-
-        expect(greetingEls.length).toBe(1);
-    });
 });
