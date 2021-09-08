@@ -5,12 +5,12 @@ header {
     background: #0288d1;
     box-shadow: 0 4px 3px rgba(1, 87, 155, 0.5);
     align-items: center;
-  }
-  header img {
+}
+header img {
     height: 3rem;
     margin-right: 0.3rem;
-  }
-  header h2 {
+}
+header h2 {
     font-size: 1.75rem;
     font-weight: 300;
-  }
+}

@@ -1,12 +1,11 @@
 import { LightningElement } from 'lwc';
 
 export default class App extends LightningElement {
-
     loggedIn = false;
     access_token;
     instance_url;
 
-    login(event){
+    login(event) {
         this.loggedIn = true;
         this.access_token = event.detail.access_token;
         this.instance_url = event.detail.instance_url;
@@ -20,10 +19,10 @@ export default class App extends LightningElement {
                 Authorization: `Bearer ${localStorage.token}`
             }
         })
-            .then(response => {
+            .then((response) => {
                 console.log(response.json());
             })
-            .catch(e => console.error(e));
+            .catch((e) => console.error(e));
     }
 
     get emptyParameters() {

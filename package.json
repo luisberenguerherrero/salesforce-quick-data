@@ -1,8 +1,8 @@
 {
     "name": "salesforce-quick-data",
+    "description": "The goal of this app is offer the Salesforce Developers a handy tool to retrieve and deploy metadata into their orgs quickly and easily. The aim is not to replace any of the existing CLI functionality, just give a direct and easy tool for specific purposes.",
     "version": "0.0.1",
-    "author": "Luis Berenguer Herrero",
-    "bugs": "https://github.com/Luis Berenguer Herrero/salesforce-quick-data/issues",
+    "bugs": "https://github.com/salesforce-quick-data/issues",
     "dependencies": {
         "compression": "^1.7.4",
         "express": "^4.17.1",
@@ -13,6 +13,7 @@
         "eslint-plugin-inclusive-language": "^2.1.1",
         "husky": "^7.0.2",
         "lwc-services": "^3.1.2",
+        "npm-run-all": "^4.1.5",
         "prettier": "^2.3.2"
     },
     "engines": {
@@ -20,12 +21,23 @@
         "npm": ">=6.4.1",
         "yarn": ">=1.9.4"
     },
-    "homepage": "https://github.com/Luis Berenguer Herrero/salesforce-quick-data",
+    "homepage": "https://github.com/salesforce-quick-data",
     "keywords": [
         "lwc"
     ],
     "license": "MIT",
-    "repository": "Luis Berenguer Herrero/salesforce-quick-data",
+    "nodemonConfig": {
+        "watch": [
+            "src/server/**/*.js"
+        ],
+        "ext": "js",
+        "ignore": [
+            "src/**/*.spec.js",
+            "src/**/*.test.js"
+        ],
+        "exec": "node ./src/server/api.js"
+    },
+    "repository": "salesforce-quick-data",
     "scripts": {
         "build": "lwc-services build -m production",
         "build:development": "lwc-services build",
@@ -34,11 +46,15 @@
         "precommit": "npm run prettier:verify && [ $? -eq 0 ] && npm run lint",
         "prettier": "prettier --write \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
         "prettier:verify": "prettier --list-different \"**/*.{css,html,js,json,md,ts,yaml,yml}\"",
-        "start": "node scripts/server.js",
+        "start": "run-p start:client start:api",
+        "start:api": "node src/server/api.js",
+        "start:client": "node scripts/server.js",
         "test:unit": "lwc-services test:unit",
         "test:unit:coverage": "lwc-services test:unit --coverage",
         "test:unit:debug": "lwc-services test:unit --debug",
         "test:unit:watch": "lwc-services test:unit --watch",
-        "watch": "lwc-services watch"
+        "watch": "run-p watch:client watch:server",
+        "watch:client": "lwc-services watch",
+        "watch:server": "nodemon"
     }
 }
